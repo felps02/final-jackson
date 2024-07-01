@@ -25,6 +25,14 @@ class ProjectApi {
         }
     }
 
+    async findProjects(req, res) {
+        try {
+            const projects = await ProjectController.find()
+            return res.status(200).send(projects)
+        } catch (e) {
+            return res.status(400).send({ error: `Erro ao listar   ${e.message}`})
+        }
+    }
     async deleteProject(req, res) {
         const { id } = req.params
 
@@ -33,15 +41,6 @@ class ProjectApi {
             return res.status(204).send()
         } catch (e) {
             return res.status(400).send({ error: `Erro ao deletar   ${e.message}`})
-        }
-    }
-
-    async findProjects(req, res) {
-        try {
-            const projects = await ProjectController.find()
-            return res.status(200).send(projects)
-        } catch (e) {
-            return res.status(400).send({ error: `Erro ao listar   ${e.message}`})
         }
     }
 

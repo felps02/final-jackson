@@ -27,16 +27,6 @@ class UserApi {
         }
     }
 
-    async deleteUser(req, res) {
-        const { id } = req.params
-
-        try {
-            await UserController.delete(Number(id))
-            return res.status(204).send()
-        } catch (e) {
-            return res.status(400).send({ error: `Erro ao deletar user ${e.message}`})
-        }
-    }
 
     async findUsers(req, res) {
         try {
@@ -47,6 +37,16 @@ class UserApi {
         }
     }
 
+    async deleteUser(req, res) {
+        const { id } = req.params
+
+        try {
+            await UserController.delete(Number(id))
+            return res.status(204).send()
+        } catch (e) {
+            return res.status(400).send({ error: `Erro ao deletar user ${e.message}`})
+        }
+    }
     async login(req, res) {
         const { email, senha } = req.body
 
@@ -63,7 +63,6 @@ class UserApi {
     }
 
     async validateToken(req, res, next) {
-        //const token = req.headers.authorization
         const token = req.cookies.token;
 
         try {

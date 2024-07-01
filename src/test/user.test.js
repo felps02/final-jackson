@@ -85,7 +85,7 @@ describe('UserApi', () => {
         senha: 'newpassword',
       };
  
-      UserController.update.mockRejectedValue(new Error('Usuário não encontrado'));
+      UserController.update.mockRejectedValue(new Error('Erro ao alterar usuário Usuário não encontrado'));
  
       await UserApi.updateUser(req, res);
  

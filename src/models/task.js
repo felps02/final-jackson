@@ -40,7 +40,7 @@ class Task {
                     });
                     
                     if (!project) {
-                        throw new Error('Projeto não encontrado');
+                        throw new Error(' não encontrado');
                     }
 
                     if (project === undefined) {
