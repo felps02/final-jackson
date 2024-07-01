@@ -33,7 +33,7 @@ app.use('/api/v1/project', ProjectRouter)
 database.db.sync()
     .then(_ => {
         app.listen(8000, _ => {
-            console.log('Server running on port 8000')
+            console.log('Servidor rodando na porta 8000')
         })
     })
     .catch(e => {

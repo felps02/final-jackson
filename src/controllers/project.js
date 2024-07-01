@@ -3,7 +3,7 @@ const project = require('../models/project')
 class ProjectController {
     async createProject(nome, descricao, id_usuario) {
         if (nome === undefined || descricao === undefined || id_usuario === undefined) {
-            throw new Error('Nome, descrição e id_usuario são obrigatórios.'+ nome + descricao +"  :  "+ id_usuario)
+            throw new Error('toods os campos são obrigatorios.'+ nome + descricao +"  :  "+ id_usuario)
         }
         const projectValue = await project.create({
             nome,
@@ -33,7 +33,7 @@ class ProjectController {
             nome === undefined || 
             descricao === undefined || 
             id_usuario === undefined) {
-            throw new Error('Id, Nome, descrição e id_usuario são obrigatórios.')
+            throw new Error('todos os campos são obrigatorio')
         }
 
         const projectValue = await this.findProject(id)
