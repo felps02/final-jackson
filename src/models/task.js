@@ -18,7 +18,7 @@ class Task {
                 type: database.db.Sequelize.INTEGER, 
                 allowNull: false,
                 references: {
-                    model: 'projects',
+                    model: 'projeto',
                     key: 'id'
                 }
             },
@@ -34,7 +34,7 @@ class Task {
            
         },{
             hooks: {
-                beforeCreate: async (task, options) => {
+                beforeCreate: async (task) => {
                     const project = await database.db.models.projects.findOne({
                         where: { id: task.id_projeto }
                     });

@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const cookieParser = require('cookie-parser');
 
-const SECRET_KEY = 'segundaavaliacao'
+const SECRET_KEY = 'provaj'
 const SALT_VALUE = 10
 
 class UserController {
@@ -12,12 +12,12 @@ class UserController {
             throw new Error('todos os campos são obrigatorios')
         }
 
-        const cypherSenha = await bcrypt.hash(senha, SALT_VALUE)
+        const provaja = await bcrypt.hash(senha, SALT_VALUE)
        
         const userValue = await user.create({
             nome,
             email,
-            senha: cypherSenha
+            senha:  provaja
         })
 
         return userValue

@@ -32,8 +32,8 @@ app.use('/api/v1/project', ProjectRouter)
 
 database.db.sync()
     .then(_ => {
-        app.listen(8000, _ => {
-            console.log('Servidor rodando na porta 8000')
+        app.listen(3000, _ => {
+            console.log('Servidor rodando na porta 3000')
         })
     })
     .catch(e => {
